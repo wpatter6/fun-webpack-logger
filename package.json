@@ -1,0 +1,29 @@
+{
+  "name": "fun-webpack-logger",
+  "version": "1.0.0",
+  "description": "A simple logger that will indicate when a webpack build has started, succeeded, or failed, with colors and emojis!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpatter6/fun-webpack-logger.git"
+  },
+  "keywords": [
+    "webpack",
+    "logger",
+    "fun"
+  ],
+  "author": "wpatter6",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wpatter6/fun-webpack-logger/issues"
+  },
+  "homepage": "https://github.com/wpatter6/fun-webpack-logger#readme",
+  "dependencies": {
+      "chalk": "2.4.1",
+      "chalk-animation": "1.6.0",
+      "fun-holidays": "1.0.0"
+    }
+}

@@ -1,0 +1,1 @@
+A simple logger that will indicate when a webpack build has started, succeeded or failed, with colors and emojis!
