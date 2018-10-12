@@ -16,19 +16,26 @@ let logger = new funLogger({//these are all of the default options and their val
         startSymbols: ['🙏', '🙏', '🍩'],//symbols to display surrounding the start message
         successSymbols: ['💯', '🙌', '🎉'],//symbols to display surrounding the success message
         errorSymbols: ['😱', '😱', '💩'],//symbols to display surrounding the error message
-        onStart: [//action to perform when start message is displayed.  Multiple can be included in the array.  If this is populated, the default behavior will not be performed.
-            x => {
+        animationTimeout: 1000 * 60 * 5,//Stop the animation after this many milliseconds, default 5 minutes
+        //action to perform when start message is displayed.  
+        //Multiple can be included in the array, or a single function only.  
+        //If this is populated, the default behavior will not be performed.
+        //'this' is the options object, first parameter is the full message that will display.
+        onStart: [
+            function (x) {
                 console.log(Chalk.cyan(x));
             }
         ],
-        onSuccess: [//action to perform when success message is displayed.  Multiple can be included in the array.  If this is populated, the default behavior will not be performed.
-            x => {
-                ChalkAnimation.rainbow(x);
+        onSuccess: [//action to perform when success message is displayed.  Same rules as onStart apply.
+            function(x) {
+                let animation = ChalkAnimation.rainbow(x);
+                setTimeout(() => animation.stop(), this.animationTimeout);
             }
         ],
-        onError: [//action to perform when error message is displayed.  Multiple can be included in the array.  If this is populated, the default behavior will not be performed.
-            x => {
-                ChalkAnimation.pulse(x)
+        onError: [//action to perform when error message is displayed.  Same rules as onStart apply.
+            function (x) {
+                let animation = ChalkAnimation.pulse(x);
+                setTimeout(() => animation.stop(), this.animationTimeout);
             }
         ],
     });
